@@ -42,7 +42,7 @@ envvar DEVPREFIX $DEVROOT/.new_local
 envvar PYTHONUSERBASE $DEVROOT/.new_local
 envvar DEV_SRC_ROOT $DEVROOT/Source
 envvar PYENV_ROOT $DEV_SRC_ROOT/pyenv
-envvar PIP_CONFIG_DIR $HOME/.config/pip
+envvar PIP_CONFIG_DIR $DEVROOT/.config/pip
 
 export PYTHONPATH=$PYTHONUSERBASE/lib/python/site-packages:$PYTHONPATH
 
@@ -132,7 +132,7 @@ jhbuild = "$DEVPREFIX/libexec/run_jhbuild.py"
 python_version = "3.6"
 EOF
     cat <<EOF > $DEVPREFIX/etc/pipenv-env
-export DEVROOT=$HOME
+export DEVROOT=$DEVROOT
 export DEVPREFIX=$DEVPREFIX
 export PYTHONUSERBASE=$PYTHONUSERBASE
 export DEV_SRC_ROOT=$DEV_SRC_ROOT
