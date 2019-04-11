@@ -203,7 +203,7 @@ pipenv install
 
 BASEURL="https://gitlab.gnome.org/GNOME/gtk-osx/raw/master"
 
-if test -L $HOME/.jhbuildrc ; then
+if test ! -e $HOME/.jhbuildrc ; then
     echo "Installing jhbuild configuration..."
     curl -ks $BASEURL/jhbuildrc-gtk-osx -o $HOME/.jhbuildrc
 fi
