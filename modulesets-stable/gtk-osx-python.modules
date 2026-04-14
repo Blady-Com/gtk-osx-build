@@ -24,6 +24,7 @@
       <dep package="pygments" />
       <dep package="pycairo" />
       <dep package="pygobject3" />
+      <dep package="setuptools" />
       <dep package="gtk-mac-integration-python" />
     </dependencies>
     <after>
@@ -33,9 +34,9 @@
   <autotools id="python3"
              autogen-sh="configure"
              autogenargs="--enable-shared">
-    <branch module="3.13.2/Python-3.13.2.tar.xz"
-            version="3.13.2"
-            hash="sha256:d984bcc57cd67caab26f7def42e523b1c015bbc5dc07836cf4f0b63fa159eb56"
+    <branch module="3.14.4/Python-3.14.4.tar.xz"
+            version="3.14.4"
+            hash="sha256:d923c51303e38e249136fc1bdf3568d56ecb03214efdef48516176d3d7faaef8"
             repo="python" />
     <dependencies>
       <dep package="readline" />
@@ -48,9 +49,9 @@
     </after>
   </autotools>
   <meson id="pycairo">
-    <branch module="pygobject/pycairo/releases/download/v1.27.0/pycairo-1.27.0.tar.gz"
-            version="1.27.0"
-            hash="sha256:5cb21e7a00a2afcafea7f14390235be33497a2cce53a98a19389492a60628430"
+    <branch module="pygobject/pycairo/releases/download/v1.29.0/pycairo-1.29.0.tar.gz"
+            version="1.29.0"
+            hash="sha256:f3f7fde97325cae80224c09f12564ef58d0d0f655da0e3b040f5807bd5bd3142"
             repo="github-tarball" />
     <dependencies>
       <dep package="cairo" />
@@ -59,9 +60,9 @@
     </dependencies>
   </meson>
   <meson id="pygobject3">
-    <branch module="pygobject/3.54/pygobject-3.54.2.tar.gz"
-            version="3.54.2"
-            hash="sha256:03cffeb49d8a1879b621d8f606ac904218019a0ae699b1cd3780a8ee611e696b" />
+    <branch module="pygobject/3.56/pygobject-3.56.2.tar.gz"
+            version="3.56.2"
+            hash="sha256:b816098969544081de9eecedb94ad6ac59c77e4d571fe7051f18bebcec074313" />
     <dependencies>
       <dep package="pycairo" />
     </dependencies>
@@ -81,13 +82,23 @@
     </after>
   </autotools>
   <pip id="pygments">
-    <branch module="7c/2d/c3338d48ea6cc0feb8446d8e6937e1408088a72a39937982cc6111d17f84/pygments-2.19.1.tar.gz"
-            version="2.19.1"
-            hash="61c16d2a8576dc0649d9f39e089b5f02bcd27fba10d8fb4dcc28173f7a45151f"
+    <branch module="c3/b2/bc9c9196916376152d655522fdcebac55e66de6603a76a02bca1b6414f6c/pygments-2.20.0.tar.gz"
+            version="2.20.0"
+            hash="sha256:6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f"
             repo="pymodules">
     </branch>
     <dependencies>
       <dep package="python3" />
+    </dependencies>
+  </pip>
+  <pip id="setuptools">
+    <branch module="4f/db/cfac1baf10650ab4d1c111714410d2fbb77ac5a616db26775db562c8fab2/setuptools-82.0.1.tar.gz"
+            version="82.0.1"
+
+            repo="pymodules">
+    </branch>
+    <dependencies>
+      <dep package="python3"/>
     </dependencies>
   </pip>
 </moduleset>

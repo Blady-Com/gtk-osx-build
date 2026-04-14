@@ -67,24 +67,25 @@
   <autotools id="libffi"
              autogen-sh="configure"
              autogenargs="--disable-multi-os-directory --disable-docs">
-    <branch module="libffi/libffi/releases/download/v3.4.7/libffi-3.4.7.tar.gz"
-            version="3.4.7"
-            hash="sha256:138607dee268bdecf374adf9144c00e839e38541f75f24a1fcf18b78fda48b2d"
+    <branch module="libffi/libffi/releases/download/v3.5.2/libffi-3.5.2.tar.gz"
+            version="3.5.2"
+            hash="sha256:f3a3082a23b37c293a4fcd1053147b371f2ff91fa7ea1b2a52e335676bac82dc"
             repo="github-tarball" />
   </autotools>
   <autotools id="libpcre2"
              autogen-sh="configure"
              autogenargs="--enable-pcre2-16 --enable-pcre2-32 --enable-jit">
-    <branch module="PCRE2Project/pcre2/releases/download/pcre2-10.45/pcre2-10.45.tar.bz2"
-            version="10.45"
+    <branch module="PCRE2Project/pcre2/releases/download/pcre2-10.47/pcre2-10.47.tar.gz"
+            hash="sha256:c08ae2388ef333e8403e670ad70c0a11f1eed021fd88308d7e02f596fcd9dc16"
+            version="10.47"
 
             repo="github-tarball" />
   </autotools>
   <meson id="glib-no-introspection"
          mesonargs="-Dlibmount=disabled -Dintrospection=disabled">
-    <branch module="glib/2.83/glib-2.83.4.tar.xz"
-            version="2.83.4"
-            hash="sha256:4edc4dc184f46d1220694b7775c5d7c62265c83b0e9632d844da127c181fc391" >
+    <branch module="glib/2.88/glib-2.88.0.tar.xz"
+            version="2.88.0"
+            hash="sha256:3546251ccbb3744d4bc4eb48354540e1f6200846572bab68e3a2b7b2b64dfd07" >
     </branch>
     <dependencies>
       <dep package="libffi" />
@@ -93,9 +94,9 @@
   </meson>
   <meson id="glib"
          mesonargs="-Dlibmount=disabled">
-    <branch module="glib/2.83/glib-2.83.4.tar.xz"
-            version="2.83.4"
-            hash="sha256:4edc4dc184f46d1220694b7775c5d7c62265c83b0e9632d844da127c181fc391" >
+    <branch module="glib/2.88/glib-2.88.0.tar.xz"
+            version="2.88.0"
+            hash="sha256:3546251ccbb3744d4bc4eb48354540e1f6200846572bab68e3a2b7b2b64dfd07" >
     </branch>
     <dependencies>
       <dep package="gobject-introspection" />
@@ -111,9 +112,9 @@
   -->
   <cmake id="freetype-no-harfbuzz"
          cmakeargs='-DFT_DISABLE_HARFBUZZ=ON -DBUILD_SHARED_LIBS=true -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_NAME_DIR="${JHBUILD_PREFIX}/lib"'>
-    <branch module="freetype/freetype-2.13.3.tar.xz"
-            version="2.13.3"
-            hash="sha256:0550350666d427c74daeb85d5ac7bb353acba5f76956395995311a9c6f063289"
+    <branch module="freetype/freetype-2.14.3.tar.xz"
+            version="2.14.3"
+            hash="sha256:36bc4f1cc413335368ee656c42afca65c5a3987e8768cc28cf11ba775e785a5f"
             repo="sourceforge" />
     <dependencies>
       <dep package="zlib" />
@@ -123,16 +124,17 @@
              autogen-sh="source/configure"
              autogenargs="--enable-rpath"
              makeargs='CFLAGS="$CFLAGS -DU_CHARSET_IS_UTF8=1 -DU_USING_ICU_NAMESPACE=0"'>
-    <branch module="unicode-org/icu/releases/download/release-78.1/icu4c-78.1-sources.tgz"
-            version="78.1"
-            hash="sha256:6217f58ca39b23127605cfc6c7e0d3475fe4b0d63157011383d716cb41617886"
+    <branch module="unicode-org/icu/releases/download/release-78.3/icu4c-78.3-sources.tgz"
+            version="78.3"
+            hash="sha256:3a2e7a47604ba702f345878308e6fefeca612ee895cf4a5f222e7955fabfe0c0"
             checkoutdir="icu"
             repo="github-tarball" />
   </autotools>
   <meson id="harfbuzz-no-cairo"
          mesonargs="-Dcoretext=enabled -Dfreetype=enabled -Ddocs=disabled -Dbenchmark=disabled -Dintrospection=disabled -Dtests=disabled">
-    <branch module="harfbuzz/harfbuzz/releases/download/12.2.0/harfbuzz-12.2.0.tar.xz"
-            version="12.2.0"
+    <branch module="harfbuzz/harfbuzz/releases/download/13.2.1/harfbuzz-13.2.1.tar.xz"
+            hash="sha256:6695da3eb7e1be0aa3092fe4d81433a33b47f4519259c759d729e3a9a55c1429"
+            version="13.2.1"
             repo="github-tarball" />
     <dependencies>
       <dep package="glib-no-introspection" />
@@ -142,9 +144,9 @@
   </meson>
   <cmake id="freetype"
          cmakeargs='-DFT_REQUIRE_HARFBUZZ=ON -DBUILD_SHARED_LIBS=true -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_NAME_DIR="${JHBUILD_PREFIX}/lib"'>
-    <branch module="freetype/freetype-2.13.3.tar.xz"
-            version="2.13.3"
-            hash="sha256:0550350666d427c74daeb85d5ac7bb353acba5f76956395995311a9c6f063289"
+    <branch module="freetype/freetype-2.14.3.tar.xz"
+            version="2.14.3"
+            hash="sha256:36bc4f1cc413335368ee656c42afca65c5a3987e8768cc28cf11ba775e785a5f"
             repo="sourceforge" />
     <dependencies>
       <dep package="harfbuzz-no-cairo" />
@@ -163,8 +165,8 @@
   </meson>
   <meson id="pixman"
          mesonargs="-Dgtk=disabled -Dmmx=disabled -Da64-neon=disabled">
-    <branch module="releases/pixman-0.44.2.tar.gz"
-            version="0.44.2"
+    <branch module="releases/pixman-0.46.4.tar.gz"
+            version="0.46.4"
 
             repo="cairographics" />
     <after>
@@ -188,9 +190,9 @@
     </dependencies>
   </meson>
   <meson id="gobject-introspection">
-    <branch module="gobject-introspection/1.82/gobject-introspection-1.82.0.tar.xz"
-            version="1.82.0"
-            hash="sha256:0f5a4c1908424bf26bc41e9361168c363685080fbdb87a196c891c8401ca2f09">
+    <branch module="gobject-introspection/1.86/gobject-introspection-1.86.0.tar.xz"
+            version="1.86.0"
+            hash="sha256:920d1a3fcedeadc32acff95c2e203b319039dd4b4a08dd1a2dfd283d19c0b9ae">
     </branch>
     <dependencies>
       <dep package="glib-no-introspection" />
@@ -203,8 +205,8 @@
   <meson id="harfbuzz"
          mesonargs="-Dcoretext=enabled -Dfreetype=enabled -Ddocs=disabled -Dbenchmark=disabled -Dintrospection=enabled -Dtests=disabled">
     <branch module="harfbuzz/harfbuzz/releases/download/12.2.0/harfbuzz-12.2.0.tar.xz"
-            version="12.2.0"
-            hash="sha256:ecb603aa426a8b24665718667bda64a84c1504db7454ee4cadbd362eea64e545"
+            version="13.2.1"
+            hash="sha256:6695da3eb7e1be0aa3092fe4d81433a33b47f4519259c759d729e3a9a55c1429"
             repo="github-tarball" />
     <dependencies>
       <dep package="gobject-introspection" />
@@ -216,7 +218,7 @@
          mesonargs="-Ddocs=false">
     <branch module="fribidi/fribidi/releases/download/v1.0.16/fribidi-1.0.16.tar.xz"
             version="1.0.16"
-
+            hash="sha256:1b1cde5b235d40479e91be2f0e88a309e3214c8ab470ec8a2744d82a5a9ea05c"
             repo="github-tarball" />
     <dependencies>
       <!--dep package="c2man"/-->
@@ -225,8 +227,8 @@
   <meson id="pango"
          mesonargs="-Dfontconfig=enabled -Dintrospection=enabled">
     <branch module="pango/1.56/pango-1.56.1.tar.xz"
-            version="1.56.1"
-            hash="sha256:426be66460c98b8378573e7f6b0b2ab450f6bb6d2ec7cecc33ae81178f246480" />
+            version="1.57.1"
+            hash="sha256:e65d6d117080dc3aeeb7d8b4b3b518f7383aa2e6cfce23117c623cd624764c2f" />
     <dependencies>
       <dep package="glib" />
       <dep package="cairo" />
@@ -249,9 +251,9 @@
   </meson>
   <meson id="gdk-pixbuf"
          mesonargs="-Drelocatable=true -Dman=false -Dbuiltin_loaders='all' -Dothers=enabled">
-    <branch module="gdk-pixbuf/2.42/gdk-pixbuf-2.42.12.tar.xz"
-            version="2.42.12"
-            hash="sha256:b9505b3445b9a7e48ced34760c3bcb73e966df3ac94c95a148cb669ab748e3c7">
+    <branch module="gdk-pixbuf/2.44/gdk-pixbuf-2.44.5.tar.xz"
+            version="2.44.5"
+            hash="sha256:69b93e09139b80c0ee661503d60deb5a5874a31772b5184b9cd5462a4100ab68">
       <patch file="gdk-pixbuf-loader-name.patch"
              strip="1" />
     </branch>
@@ -260,11 +262,11 @@
       <dep package="gobject-introspection" />
     </after>
   </meson>
-  <autotools id="hicolor-icon-theme">
-    <branch module="hicolor-icon-theme-0.17.tar.xz"
-            version="0.17"
+  <meson id="hicolor-icon-theme">
+    <branch module="hicolor-icon-theme-0.18.tar.xz"
+            version="0.18"
             repo="hicolor" />
-  </autotools>
+  </meson>
   <meson id="libepoxy">
     <branch module="anholt/libepoxy/archive/refs/tags/1.5.10.tar.gz"
             version="1.5.10"
@@ -277,9 +279,9 @@
   <!-- gtk3 is in maintenance mode with 3.24 the final release series. -->
   <meson id="gtk+-3.0"
          mesonargs="-Dx11_backend=false">
-    <branch module="gtk/3.24/gtk-3.24.51.tar.xz"
-            version="3.24.51"
-            hash="sha256:0013877c6bd23c2dbe42ad7c70a053d0e449be66736574e37867c49c5f905a4f" />
+    <branch module="gtk/3.24/gtk-3.24.52.tar.xz"
+            version="3.24.52"
+            hash="sha256:80931fa472a77b9a164f6740e3c0b444fac6770054632d35a7ff9d679e5e7b9f" />
     <dependencies>
       <dep package="glib" />
       <dep package="pango" />
@@ -306,10 +308,10 @@
     </dependencies>
   </meson>
   <meson id="gtk-4"
-         mesonargs="-Dx11-backend=false -Dmedia-gstreamer=disabled -Dintrospection=enabled">
-    <branch module="gtk/4.16/gtk-4.16.7.tar.xz"
-            version="4.16.7"
-            hash="sha256:5303c7624e15a48880591b9ddd43389afba3de4fb92a219719519bb1642ce3dc" />
+         mesonargs="-Dx11-backend=false -Dmedia-gstreamer=disabled -Dintrospection=enabled -Dvulkan=disabled">
+    <branch module="gtk/4.22/gtk-4.22.1.tar.xz"
+            version="4.22.1"
+            hash="sha256:cd7b5a9c41127da6fb321c5a842ad73c62e6996f9ce3f1960ca509f6559d55fc" />
     <dependencies>
       <dep package="pango" />
       <dep package="atk" />
@@ -330,16 +332,16 @@
     </dependencies>
   </autotools>
   <autotools id="libxml2">
-    <branch module="libxml2/2.13/libxml2-2.13.5.tar.xz"
-            version="2.13.5"
-            hash="sha256:74fc163217a3964257d3be39af943e08861263c4231f9ef5b496b6f6d4c7b2b6"
+    <branch module="libxml2/2.15/libxml2-2.15.2.tar.xz"
+            version="2.15.2"
+            hash="sha256:c8b9bc81f8b590c33af8cc6c336dbff2f53409973588a351c95f1c621b13d09d"
             repo="download.gnome.org"/>
   </autotools>
   <meson id="librsvg"
          mesonargs="--buildtype=release -Dintrospection=disabled -Ddocs=disabled -Dpixbuf-loader=enabled">
-    <branch module="librsvg/2.61/librsvg-2.61.3.tar.xz"
-            version="2.61.3"
-            hash="sha256:a56d2c80d744ad2f2718f85df466fe71d24ff1f9bc3e5ef588bde4d7e87815f2" >
+    <branch module="librsvg/2.62/librsvg-2.62.1.tar.xz"
+            version="2.62.1"
+            hash="sha256:b41ca84206242fddd826a2bf76348d7cdf52c1050cbfa060b866e81a252145c3" >
       <patch file="librsvg-libpixbufloader-install-names.patch" strip="1" />
     </branch>
     <dependencies>
@@ -352,9 +354,9 @@
     </dependencies>
   </meson>
   <meson id="adwaita-icon-theme">
-    <branch module="adwaita-icon-theme/47/adwaita-icon-theme-47.0.tar.xz"
-            version="47.0"
-            hash="sha256:ad088a22958cb8469e41d9f1bba0efb27e586a2102213cd89cc26db2e002bdfe" />
+    <branch module="adwaita-icon-theme/50/adwaita-icon-theme-50.0.tar.xz"
+            version="50.0"
+            hash="sha256:fac6e0401fca714780561a081b8f7e27c3bc1db34ebda4da175081f26b24d460" />
     <dependencies>
       <dep package="librsvg" />
     </dependencies>

@@ -21,9 +21,10 @@
   <autotools id="libpng"
              autogen-sh="configure"
              autogenargs="--enable-shared">
-    <branch module="libpng/libpng-1.6.52.tar.xz"
-            version="1.6.52"
-            hash="sha256:36bd726228ec93a3b6c22fdb49e94a67b16f2fe9b39b78b7cb65772966661ccc"
+    <branch module="netwide-assembler/nasm/archive/refs/tags/nasm-3.01.tar.gz"
+            checkoutdir="nasm-nasm-3.01"
+            version="3.01"
+            hssh="sha256:af2f241ecc061205d73ba4f781f075d025dabaeab020b676b7db144bf7015d6d"
             repo="sourceforge" />
     <dependencies>
       <dep package="zlib" />
@@ -33,20 +34,20 @@
              autogen-sh="autogen.sh"
              autogen-template="./%(autogen-sh)s &amp;&amp; %(srcdir)s/configure --prefix=%(prefix)s %(autogenargs)s"
              supports-non-srcdir-builds="no" >
-    <branch module="netwide-assembler/nasm/archive/refs/tags/nasm-2.16.03.tar.gz"
-            checkoutdir="nasm-nasm-2.16.03"
-            version="2.16.03"
-            hash="sha256:e525fa6fdc3df33cec6b499111f44afa78ce50bf260158580dcf014015a21ba9"
+    <branch module="netwide-assembler/nasm/archive/refs/tags/nasm-3.01.tar.gz"
+            checkoutdir="nasm-nasm-3.01"
+            version="3.01"
+            hssh="sha256:af2f241ecc061205d73ba4f781f075d025dabaeab020b676b7db144bf7015d6d"
             repo="github-tarball" >
       <patch file="nasm-dont-install-docs.patch" strip="1" />
     </branch>
   </autotools> 
   <cmake id="libjpeg"
          cmakeargs="-DCMAKE_MACOSX_RPATH=true -DCMAKE_INSTALL_NAME_DIR=&quot;${JHBUILD_PREFIX}/lib&quot; -DCMAKE_INSTALL_LIBDIR:PATH=lib">
-    <branch module="libjpeg-turbo/libjpeg-turbo/releases/download/3.1.2/libjpeg-turbo-3.1.2.tar.gz"
-            version="3.1.2"
-            hash="sha256:8f0012234b464ce50890c490f18194f913a7b1f4e6a03d6644179fa0f867d0cf"
-            checkoutdir="libjpeg-turbo-3.1.2"
+    <branch module="libjpeg-turbo/libjpeg-turbo/releases/download/3.1.4.1/libjpeg-turbo-3.1.4.1.tar.gz"
+            version="3.1.4.1"
+            hash="sha256:ecae8008e2cc9ade2f2c1bb9d5e6d4fb73e7c433866a056bd82980741571a022"
+            checkoutdir="libjpeg-turbo-3.1.4.1"
             repo="github-tarball" />
     <dependencies>
       <dep package="nasm" />

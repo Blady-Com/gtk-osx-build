@@ -12,11 +12,7 @@
   <repository name="cairographics"
               href="http://cairographics.org/releases/"
               type="tarball" />
-  <meson id="mm-common">
-    <branch module="mm-common/1.0/mm-common-1.0.6.tar.xz"
-            version="1.0.6"
-            hash="sha256:b55c46037dbcdabc5cee3b389ea11cc3910adb68ebe883e9477847aa660862e7" />
-  </meson>
+  <!-- mm-common is C++ glue code needed only to build from git. -->
   <!-- Libsigc++ was rewritten to use C++17 variadic templates for version 3, and
        adopting that has created substantial API breaks for the whole "mm" stack.
        gtkmm3 uses the older versions, gtkmm4 the new ones. -->
@@ -30,9 +26,9 @@
     </dependencies>
   </meson>
   <meson id="cairomm">
-    <branch module="cairomm-1.18.0.tar.xz"
-            version="1.18.0"
-            hash="sha256:b81255394e3ea8e8aa887276d22afa8985fc8daef60692eb2407d23049f03cfb"
+    <branch module="cairomm-1.19.0.tar.xz"
+            version="1.19.0"
+
             repo="cairographics" />
     <dependencies>
       <dep package="cairo" />
@@ -49,9 +45,9 @@
     </dependencies>
   </meson>
   <meson id="glibmm">
-    <branch module="glibmm/2.83/glibmm-2.83.1.tar.xz"
-            version="2.83.1"
-            hash="sha256:68350a823c33da8acfb1263715bb002a36c68346bd44c19ac4c3f0bd190fd2b1">
+    <branch module="glibmm/2.88/glibmm-2.88.0.tar.xz"
+            version="2.88.0"
+            hash="sha256:a6549da3a6c43de83b8717dae5413c57a60d92f6ecc624615c612d0bb0ad0fe2">
     </branch>
     <dependencies>
       <dep package="glib" />
@@ -116,9 +112,9 @@
             hash="sha256:c3d23b37dfd6e39f2e09f091b77b1541fbfa17c4f0b6bf5c89baef7229080e17" />
   </meson>
   <meson id="gtkmm3">
-    <branch module="gtkmm/3.24/gtkmm-3.24.9.tar.xz"
-            version="3.24.9"
-            hash="sha256:30d5bfe404571ce566a8e938c8bac17576420eb508f1e257837da63f14ad44ce">
+    <branch module="gtkmm/3.24/gtkmm-3.24.10.tar.xz"
+            version="3.24.10"
+            hash="sha256:7ab7e2266808716e26c39924ace1fb46da86c17ef39d989624c42314b32b5a76">
       <patch file="gtkmm-3-bad-const-property-background.patch"
              strip="1" />
     </branch>
@@ -131,9 +127,9 @@
     </dependencies>
   </meson>
   <meson id="gtkmm4">
-    <branch module="gtkmm/4.16/gtkmm-4.16.0.tar.xz"
-            version="4.16.0"
-            hash="sha256:3b23fd3abf8fb223b00e9983b6010af2db80e38c89ab6994b8b6230aa85d60f9" />
+    <branch module="gtkmm/4.22/gtkmm-4.22.0.tar.xz"
+            version="4.22.0"
+            hash="sha256:2e8a21b4b0725f620e33aaee0cd343ed121b533275b632896619b1c89e96de67" />
     <dependencies>
       <dep package="glibmm" />
       <dep package="cairomm" />

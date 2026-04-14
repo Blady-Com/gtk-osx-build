@@ -17,9 +17,8 @@
   <repository name="github"
               href="https://github.com"
               type="git" />
-  <!-- mm-common is C++ glue code needed only to build from git. -->
     <cmake id="boost" cmakeargs="-DLIBRARIES='date_time;regex;locale;filesystem;program_options;system'">
-    <branch module="boost/boost_1_87_0.tar.bz2" version="1.87.0" 
+    <branch module="boost/boost_1_90_0.tar.bz2" version="1.90.0" 
 
             repo="sourceforge">
       <patch file="boost-cmake.patch" strip="1"/>
@@ -32,6 +31,7 @@
       <branch module="doxygen/doxygen"
               repo="github" />
     </cmake>
+  <!-- mm-common is C++ glue code needed only to build from git. -->
   <meson id="mm-common">
     <branch module="mm-common" />
     <dependencies>

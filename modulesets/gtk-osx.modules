@@ -61,19 +61,19 @@
              autogenargs="--disable-multi-os-directory --disable-docs">
     <branch module="libffi/libffi"
             repo="github"
-            tag="v3.4.7" />
+            tag="v3.5.2" />
   </autotools>
   <autotools id="libpcre2"
              autogen-sh="configure"
              autogenargs="--enable-pcre2-16 --enable-pcre2-32 --enable-jit">
     <branch module="PCRE2Project/pcre2/"
-            revision="release/pcre2-10.45"
+            revision="release/pcre2-10.47"
             repo="github" />
   </autotools>
   <meson id="glib-no-introspection"
          mesonargs="-Dlibmount=disabled">
     <branch module="glib"
-            tag="glib-2-83" />
+            tag="glib-2-88" />
     <dependencies>
       <dep package="libffi" />
       <dep package="libpcre2" />
@@ -81,7 +81,7 @@
   </meson>
   <meson id="glib"
          mesonargs="-Dlibmount=disabled">
-    <branch tag="glib-2-83" />
+    <branch tag="glib-2-88" />
     <dependencies>
       <dep package="gobject-introspection" />
     </dependencies>
@@ -94,7 +94,7 @@
          cmakeargs='-DFT_DISABLE_HARFBUZZ=ON -DBUILD_SHARED_LIBS=true -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_NAME_DIR="${JHBUILD_PREFIX}/lib"'>
     <branch module="freetype/freetype.git"
             repo="freedesktop"
-            revision="VER-2-13-3" />
+            revision="VER-2-14-3" />
     <dependencies>
       <dep package="zlib" />
     </dependencies>
@@ -104,8 +104,8 @@
              autogenargs="--enable-rpath"
              makeargs='CFLAGS="$CFLAGS -DU_CHARSET_IS_UTF8=1 -DU_USING_ICU_NAMESPACE=0"'>
     <branch module="unicode-org/icu/releases/download/release-78-1/icu4c-78.1-sources.tgz"
-            version="78.1"
-            hash="sha256:6217f58ca39b23127605cfc6c7e0d3475fe4b0d63157011383d716cb41617886"
+            version="78.3"
+            hash="sha256:3a2e7a47604ba702f345878308e6fefeca612ee895cf4a5f222e7955fabfe0c0"
             checkoutdir="icu"
             repo="github-tarball" />
   </autotools>
@@ -113,21 +113,20 @@
          mesonargs="-Dcoretext=enabled -Dfreetype=enabled -Ddocs=disabled -Dbenchmark=disabled -Dintrospection=disabled -Dtests=disabled">
     <branch module="harfbuzz/harfbuzz"
             repo="github"
-            tag="12.2.0" />
+            tag="13.2.1" />
     <dependencies>
       <dep package="glib-no-introspection" />
       <dep package="freetype-no-harfbuzz" />
     </dependencies>
     <after>
       <dep package="icu" />
-      <dep package="icu55" />
     </after>
   </meson>
   <cmake id="freetype"
          cmakeargs='-DFT_REQUIRE_HARFBUZZ=ON -DBUILD_SHARED_LIBS=true -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_NAME_DIR="${JHBUILD_PREFIX}/lib"'>
     <branch module="freetype/freetype.git"
             repo="freedesktop"
-            revision="VER-2-13-3" />
+            revision="VER-2-14-3" />
     <dependencies>
       <dep package="harfbuzz-no-cairo" />
       <dep package="zlib" />
@@ -146,7 +145,7 @@
          mesonargs="-Dgtk=disabled -Dmmx=disabled -Da64-neon=disabled">
     <branch module="pixman/pixman"
             repo="freedesktop"
-            revision="pixman-0.44.2" />
+            revision="pixman-0.46.4" />
     <after>
       <dep package="meta-gtk-osx-bootstrap" />
     </after>
@@ -167,7 +166,7 @@
   </meson>
   <meson id="gobject-introspection">
     <branch module="gobject-introspection"
-            tag="1.82.0" />
+            tag="1.86.0" />
     <dependencies>
       <dep package="glib-no-introspection" />
       <dep package="cairo" />
@@ -184,7 +183,7 @@
          mesonargs="-Dcoretext=enabled -Dfreetype=enabled -Ddocs=disabled -Dbenchmark=disabled">
     <branch module="harfbuzz/harfbuzz"
             repo="github"
-            tag="12.2.0" />
+            tag="13.2.1" />
     <dependencies>
       <dep package="gobject-introspection" />
       <dep package="cairo" />
@@ -195,14 +194,14 @@
          mesonargs="-Ddocs=false">
     <branch module="fribidi/fribidi"
             repo="github"
-            tag="v1.0.13" />
+            tag="v1.0.16" />
     <dependencies>
       <!--dep package="c2man" /-->
     </dependencies>
   </meson>
   <meson id="pango"
          mesonargs="-Dfontconfig=enabled -Dintrospection=enabled">
-    <branch tag="1.56.1" />
+    <branch tag="1.57.1" />
     <dependencies>
       <dep package="glib" />
       <dep package="cairo" />
@@ -224,11 +223,16 @@
   <meson id="gdk-pixbuf"
          mesonargs="-Drelocatable=true -Dman=false -Dbuiltin_loaders='all' -Dothers=enabled">
     <!-- gdk-pixbuf is releasing from master -->
-    <branch tag="2.42.10" />
+    <branch tag="2.44.5" />
     <dependencies>
       <dep package="pango" />
       <dep package="gobject-introspection" />
     </dependencies>
+  </meson>
+  <meson id="hicolor-icon-theme">
+    <branch module="hicolor-icon-theme-0.18.tar.xz"
+            version="0.18"
+            repo="hicolor" />
   </meson>
   <meson id="libepoxy">
     <branch module="anholt/libepoxy"
@@ -237,11 +241,6 @@
       <patch file="libepoxy-fix-meson-configuration.patch" strip="1" />
     </branch>
   </meson>
-  <autotools id="hicolor-icon-theme">
-    <branch module="hicolor-icon-theme-0.17.tar.xz"
-            version="0.17"
-            repo="hicolor" />
-  </autotools>
   <meson id="gtk+-3.0"
          mesonargs="-Dx11_backend=false">
     <branch module="gtk"
@@ -292,10 +291,10 @@
     </dependencies>
   </autotools>
   <meson id="gtk-4"
-         mesonargs="-Dx11-backend=false -Dmedia-gstreamer=disabled -Dintrospection=enabled">
+         mesonargs="-Dx11-backend=false -Dmedia-gstreamer=disabled -Dintrospection=enabled -Dvulkan=disabled">
     <branch module="gtk"
             checkoutdir="gtk-4.0"
-            revision="gtk-4-16" />
+            revision="gtk-4-22" />
     <dependencies>
       <dep package="glib"/>
       <dep package="pango"/>
