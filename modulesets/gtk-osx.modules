@@ -136,7 +136,7 @@
          mesonargs="-Ddoc=disabled -Ddefault-fonts-dirs=/System/Library/Fonts -Dadditional-fonts-dirs=/Library/Fonts">
     <branch module="fontconfig/fontconfig"
             repo="freedesktop"
-            tag="2.16.0" />
+            tag="2.17.1" />
     <dependencies>
       <dep package="freetype" />
     </dependencies>
