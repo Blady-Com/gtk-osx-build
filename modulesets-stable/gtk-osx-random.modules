@@ -66,42 +66,7 @@
             hash="sha256:a695629dae047055b37d50a0ff4776d1d45d0a4c842cf4ccee158441f55ff7ee"
             repo="sourceforge" />
   </autotools>
-  <autotools id="itstool"
-             autogen-sh="configure">
-    <branch module="itstool/itstool-2.0.7.tar.bz2"
-            version="2.0.7"
-            hash="sha256:6b9a7cd29a12bb95598f5750e8763cee78836a1a207f85b74d8b3275b27e87ca"
-            repo="itstool" />
-    <dependencies>
-      <dep package="libxml2" />
-    </dependencies>
   </autotools>
-  <meson id="devhelp-gtk3">
-    <branch module="devhelp/43/devhelp-43.0.tar.xz"
-            version="43.0"
-            hash="sha256:63ceeefd05392e02044881ef1ecd724293553da5735b7efc082b2d13fe85dd04">
-      <patch file="devhelp-3-build-on-macOS.patch"
-             strip="1" />
-    </branch>
-    <dependencies>
-      <dep package="webkit2gtk3" />
-      <dep package="gsettings-desktop-schemas" />
-      <!-- Without shared-mime-info, HTML documents display as plain text -->
-      <dep package="shared-mime-info" />
-      <dep package="itstool" />
-    </dependencies>
-  </meson>
-  <meson id="glade"
-         mesonargs="-Dmac_bundle=true -Dman=false">
-    <branch module="glade/3.40/glade-3.40.0.tar.xz"
-            version="3.40.0"
-            hash="sha256:31c9adaea849972ab9517b564e19ac19977ca97758b109edc3167008f53e3d9c">
-    </branch>
-    <dependencies>
-      <dep package="itstool" />
-      <dep package="meta-gtk-osx-gtk3" />
-    </dependencies>
-  </meson>
   <!-- gtksourceview got a major version ahead:
        4.x.x supports recent versions of gtk+-3 and 5.x.x is for gtk4. -->
   <meson id="gtksourceview3"
@@ -157,26 +122,6 @@
       <dep package="zlib" />
     </dependencies>
   </autotools>
-  <!-- Goocanvas2 is for gtk+-3. -->
-  <autotools id="goocanvas2"
-             supports-non-srcdir-builds="no">
-    <branch module="goocanvas/2.0/goocanvas-2.0.4.tar.xz"
-            version="2.0.4"
-            hash="sha256:c728e2b7d4425ae81b54e1e07a3d3c8a4bd6377a63cffa43006045bceaa92e90" />
-    <after>
-      <dep package="gtk+-3.0" />
-    </after>
-  </autotools>
-  <!-- Goocanvas3 is for gtk-4. It is no longer being developed and is archived. -->
-  <autotools id="goocanvas3"
-             supports-non-srcdir-builds="no">
-    <branch module="goocanvas/3.0/goocanvas-3.0.0.tar.xz"
-            version="3.0.0"
-            hash="sha256:670a7557fe185c2703a14a07506156eceb7cea3b4bf75076a573f34ac52b401a" />
-    <after>
-      <dep package="gtk-4" />
-    </after>
-  </autotools>
   <autotools id="hunspell"
              autogen-sh="autoreconf">
     <branch module="hunspell/hunspell/archive/v1.7.2.tar.gz"
@@ -199,24 +144,6 @@
     <after>
       <dep package="hunspell" />
     </after>
-  </autotools>
-  <!-- gtkspell is nolonger being developed. Applications that use it should migrate to gspell. -->
-  <autotools id="gtkspell3"
-             autogen-sh="configure"
-             autogenargs="--enable-vala=no">
-    <branch module="gtkspell/gtkspell3-3.0.10.tar.xz"
-            version="3.0.10"
-            hash="sha256:b040f63836b347eb344f5542443dc254621805072f7141d49c067ecb5a375732"
-            repo="sourceforge">
-      <patch file="0001-Enable-use-of-XDG_DATA_DIRS-for-locating-iso-code-fi.patch"
-             strip="1" />
-      <patch file="gtkspell-3-install.sh-wrong-sh-path.patch"
-             strip="1" />
-    </branch>
-    <dependencies>
-      <dep package="enchant" />
-      <dep package="iso-codes" />
-    </dependencies>
   </autotools>
   <meson id="gspell"
         mesonargs="-Dvapi=false -Dgtk_doc=false -Dtests=false -Dinstall_tests=false" >
